@@ -1,0 +1,56 @@
+  
+  <div class="row-fluid">
+      <div class="span1">
+	  Completed
+	  </div>
+	  <div class="span5">
+	  To Do
+	  </div>
+	  <div class="span1">
+	  Cost
+	  </div>
+	  <div class="span1">
+	  Rank
+	  </div>
+	  <div class="span2">
+	  Save
+	</div>
+  </div>
+  <% @selected_category.sorted_to_do.each do |to_do| %>
+  <div class="row-fluid">
+	<%= form_for(to_do) do |f| %>
+	  <% if to_do.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(to_do.errors.count, "error") %> prohibited this to_do from being saved:</h2>
+		  <ul>
+		  <% to_do.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
+	  <div class="span1">
+	  <%= f.check_box :completed, :class => "span12" %>
+	  </div>
+	  <div class="span5">
+	  <%= f.text_field :text, :class => "span12" %>
+	  </div>
+	  <div class="span1">
+	  <%= f.number_field :cost, :class => "span12" %>
+	  </div>
+	  <div class="span1">
+	  <%= f.number_field :rank, :class => "span12" %>
+	  </div>
+	  <div class="span2">
+	  	<div class="row-fluid">
+			<div class="span5">
+				<%= f.submit 'Update', :class => "span12" %>
+			</div>
+			<div class="span5">
+				<%= link_to 'Destroy', to_do, confirm: 'Are you sure?', method: :delete, :class => "span12" %>
+			</div>
+		</div>
+	  </div>
+   <% end %>
+  </div>
+  <% end %>

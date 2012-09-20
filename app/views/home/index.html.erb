@@ -1,0 +1,7 @@
+<div class="hero-unit">
+	<h1>TuDew</h1>
+	<p>Kevin Coleman's To-Do Application.</p>
+	<% if not user_signed_in? %>
+		<%= link_to('Login', new_user_session_path, :class => "btn btn-primary btn-large" )  %>				
+	<% end %>
+</div>

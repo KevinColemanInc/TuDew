@@ -4,7 +4,7 @@
 	
   <% if user_signed_in? %>
     <li>
-	<%= link_to('To Do Lists', :controller => "categories", :action => "list", :id => current_user.category.first) %>
+	<%= link_to('To Do Lists', :controller => "/categories", :action => "list", :id => current_user.category.first) %>
     </li>
   <% else %>
     <li>
